@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .dev8 {
+      @apply border border-dashed border-red-300;
+    }
+    .button {
+      @apply py-2 px-3 rounded-sm text-[#222226] text-xs;
+    }
+    .button-active{
+      @apply py-2 px-3 rounded-sm bg-[#2187E5] text-[#222226] text-xs border-[1px] border-solid text-white;
+    }
+}
