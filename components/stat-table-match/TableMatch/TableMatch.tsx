@@ -12,8 +12,8 @@ function TableMatch({ statistic, team }: { statistic: any; team: any }) {
     setSelectteam(value);
   };
   const handleChangeSorted = (value: string) => {
-    if (sorted ===  value) {
-      setSorted("-"+value);
+    if (sorted === value) {
+      setSorted("-" + value);
     } else {
       setSorted(value);
     }
@@ -121,26 +121,15 @@ function TableMatch({ statistic, team }: { statistic: any; team: any }) {
       setData((prevData) => sortData(prevData, sorted));
     }
     if (group === 5) {
-      if(selectTeam === "total"){
+      if (selectTeam === "total") {
         setData([...homeGoalKeeper, ...awayGoalKeeper]);
-      }
-      else if (selectTeam === "home"){
+      } else if (selectTeam === "home") {
         setData([...homeGoalKeeper]);
-      }
-      else{
+      } else {
         setData([...awayGoalKeeper]);
       }
     }
-  }, [
-    selectTeam,
-    data,
-    homePlayersWithId,
-    awayPlayersWithId,
-    sorted,
-    group,
-    homeGoalKeeper,
-    awayGoalKeeper,
-  ]);
+  }, [selectTeam, sorted, group]);
   return (
     <div>
       <div className="flex items-center pb-3.5 gap-2 p-6">
