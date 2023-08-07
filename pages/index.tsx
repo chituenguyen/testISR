@@ -16,7 +16,7 @@ const Home: NextPage = () => {
     return <div></div>;
   }
   return (
-    <div className="containerPage font-beVietNam flex flex-col gap-3 w-[880px]">
+    <div className="containerPage font-beVietNam flex flex-col gap-3 w-[880px] py-5 border border-solid border-surface-2 rounded-3xl shadow-2xl my-3">
       <h3 className="text-basic text-base font-bold not-italic uppercase text-center">players</h3>
       <div className="flex gap-2 px-6">
         <button
