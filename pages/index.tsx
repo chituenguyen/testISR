@@ -4,11 +4,15 @@ import useTeam from "../hooks/useFetchTeam";
 import useStatisticMatch from "../hooks/useFetchStatistic";
 import { useQueryClient } from "react-query";
 import TableMatch from "../components/stat-table-match/TableMatch/TableMatch";
+import { ThemeSwitch } from "../components/darkmode/ThemeSwitch";
+import { useTheme } from "next-themes";
 
 const Home: NextPage = () => {
   const [showLineUp, setShowLineUp] = useState(true);
   const [showStatistic, setShowStatistic] = useState(false);
   const queryClient = useQueryClient();
+  const { resolvedTheme } = useTheme();
+  console.log(resolvedTheme);
 
   const { data: team, isLoading: loadingTeam } = useTeam();
   const { data: statistic, isLoading: loadingStatistic } = useStatisticMatch();
@@ -18,6 +22,9 @@ const Home: NextPage = () => {
   return (
     <div className="containerPage font-beVietNam flex flex-col gap-3 w-[880px] py-5 border border-solid border-surface-2 rounded-3xl shadow-2xl my-3">
       <h3 className="text-basic text-base font-bold not-italic uppercase text-center">players</h3>
+      <div className="w-fit h-fit absolute top-0 right-0">
+      <ThemeSwitch/>
+      </div>
       <div className="flex gap-2 px-6">
         <button
           onClick={() => {
