@@ -266,7 +266,7 @@ let columns = [
       },
       {
         header: "Rating",
-        accessorKey: "rating",
+        accessorKey: "statistics.rating",
         sorted: true,
       },
     ],

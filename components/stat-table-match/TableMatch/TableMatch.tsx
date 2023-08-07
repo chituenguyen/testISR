@@ -117,9 +117,7 @@ function TableMatch({ statistic, team }: { statistic: any; team: any }) {
     if (selectTeam === "away") {
       setData([...awayPlayersWithId]);
     }
-    if (sorted) {
-      setData((prevData) => sortData(prevData, sorted));
-    }
+    
     if (group === 5) {
       if (selectTeam === "total") {
         setData([...homeGoalKeeper, ...awayGoalKeeper]);
@@ -128,6 +126,9 @@ function TableMatch({ statistic, team }: { statistic: any; team: any }) {
       } else {
         setData([...awayGoalKeeper]);
       }
+    }
+    if (sorted) {
+      setData((prevData) => sortData(prevData, sorted));
     }
   }, [selectTeam, sorted, group]);
   return (
