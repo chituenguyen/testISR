@@ -121,7 +121,15 @@ function TableMatch({ statistic, team }: { statistic: any; team: any }) {
       setData((prevData) => sortData(prevData, sorted));
     }
     if (group === 5) {
-      setData([...homeGoalKeeper, ...awayGoalKeeper]);
+      if(selectTeam === "total"){
+        setData([...homeGoalKeeper, ...awayGoalKeeper]);
+      }
+      else if (selectTeam === "home"){
+        setData([...homeGoalKeeper]);
+      }
+      else{
+        setData([...awayGoalKeeper]);
+      }
     }
   }, [
     selectTeam,
