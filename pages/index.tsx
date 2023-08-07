@@ -16,15 +16,15 @@ const Home: NextPage = () => {
     return <div></div>;
   }
   return (
-    <div className="">
-      <h3>players</h3>
-      <div className="flex gap-2">
+    <div className="containerPage font-beVietNam flex flex-col gap-3 w-[880px]">
+      <h3 className="text-basic text-base font-bold not-italic uppercase text-center">players</h3>
+      <div className="flex gap-2 px-6">
         <button
           onClick={() => {
             setShowLineUp(true);
             setShowStatistic(false);
           }}
-          className="dev8"
+          className={`button capitalize ${showLineUp ? "button-active-border":""} `}
         >
           lineups
         </button>
@@ -33,14 +33,15 @@ const Home: NextPage = () => {
             setShowStatistic(true);
             setShowLineUp(false);
           }}
-          className="dev8"
+          className={`button capitalize ${showStatistic ? "button-active-border":""} `}
+
         >
           player statistic
         </button>
       </div>
       <div>
         <div className={`${showLineUp ? "block" : "hidden"}`}>
-          <h4>Show anything to load api player statistic</h4>
+          <h4 className="text-xsm">Show anything to load api player statistic</h4>
         </div>
         <div className={`${showStatistic ? "block" : "hidden"}`}>
           <TableMatch statistic = {statistic?.data} team ={team?.data}/>

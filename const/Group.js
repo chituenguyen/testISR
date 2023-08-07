@@ -26,22 +26,31 @@ let columns = [
       },
       {
         header: "Duels(won)",
-        accessorKey: "statistics.duelWon",
-        accessorKeySecond: "statistics.duelLost",
+        accessorKey: "statistics.duelLost",
+        accessorKeySecond: "statistics.duelWon",
         sorted: true,
       },
       {
         header: "Minutes played",
-        accessorKey:"statistics.minutesPlayed"
+        accessorKey: "statistics.minutesPlayed",
       },
       {
-        header:"Position",
-        accessorKey:"position"
+        header: "Ground duels(won)",
+        accessorKey: "statistics.ground",
       },
       {
-        header:"Rating",
-        accessorKey:"statistics.rating"
-      }
+        header: "Aerial duels(won)",
+        accessorKey: "statistics.aerialLost",
+        accessorKeySecond: "statistics.aerialWon",
+      },
+      {
+        header: "Position",
+        accessorKey: "player.position",
+      },
+      {
+        header: "Rating",
+        accessorKey: "statistics.rating",
+      },
     ],
   },
   {
@@ -49,34 +58,40 @@ let columns = [
     name: "Attack",
     data: [
       {
-        header: "Goals",
-        accessorKey: "statistics.goals",
+        header: "Shot on target",
+        accessorKey: "statistics.onTargetScoringAttempt",
         sorted: true,
       },
       {
-        header: "Big chances missed",
-        accessorKey: "bigChancesMissed",
+        header: "Shot off target",
+        accessorKey: "statistics.shotOffTarget",
         sorted: true,
       },
       {
-        header: "Succ. dribbles",
-        accessorKey: "successfulDribbles",
+        header: "Shot blocked",
+        accessorKey: "statistics.blockedScoringAttempt",
         sorted: true,
       },
       {
-        header: "Total shots",
-        accessorKey: "totalShots",
+        header: "Dribble attempts(succ.)",
+        accessorKey: "statistics.totalContest",
+        accessorKeySecond: "statistics.wonContest",
         sorted: true,
       },
       {
-        header: "Goal conversion %",
-        accessorKey: "goalConversionPercentage",
-        sorted: true,
+        header: "Notes",
+        accessorKey: "statistics.penaltyWon",
+        accessorKeySecond: "statistics.hitWoodwork",
+        accessorKeyThird : "statistics.bigChanceMissed",
+        accessorKeyFourth : "statistics.penaltyMiss"
       },
       {
-        header: "Average UniScore rating",
-        accessorKey: "rating",
-        sorted: true,
+        header: "Position",
+        accessorKey: "player.position",
+      },
+      {
+        header: "Rating",
+        accessorKey: "statistics.rating",
       },
     ],
   },
@@ -85,28 +100,40 @@ let columns = [
     name: "Defence",
     data: [
       {
-        header: "Tackles",
-        accessorKey: "tackles",
+        header: "Clearances",
+        accessorKey: "statistics.totalClearance",
+        sorted: true,
+      },
+      {
+        header: "Blocked shots",
+        accessorKey: "statistics.outfielderBlock",
         sorted: true,
       },
       {
         header: "Interceptions",
-        accessorKey: "interceptions",
+        accessorKey: "statistics.interceptionWon",
         sorted: true,
       },
       {
-        header: "Clearances",
-        accessorKey: "clearances",
+        header: "Tackles",
+        accessorKey: "statistics.totalTackle",
         sorted: true,
       },
       {
-        header: "Errors lead to goal",
-        accessorKey: "errorLeadToGoal",
-        sorted: true,
+        header: "Dribbled past",
+        accessorKey: "statistics.challengeLost",
       },
       {
-        header: "Average UniScore rating",
-        accessorKey: "rating",
+        header: "Notes",
+        accessorKey: "statistics.penaltyConceded",
+      },
+      {
+        header: "Position",
+        accessorKey: "player.position",
+      },
+      {
+        header: "Rating",
+        accessorKey: "statistics.rating",
         sorted: true,
       },
     ],
@@ -116,99 +143,129 @@ let columns = [
     name: "Passing",
     data: [
       {
-        header: "Big chances created",
-        accessorKey: "bigChancesCreated",
+        header: "Touches",
+        accessorKey: "statistics.touches",
         sorted: true,
       },
       {
-        header: "Assists",
-        accessorKey: "assists",
-        sorted: true,
-      },
-      {
-        header: "Acc. passes",
-        accessorKey: "accuratePasses",
-        sorted: true,
-      },
-      {
-        header: "Accurate passes %",
-        accessorKey: "accuratePassesPercentage",
+        header: "Acc.passes",
+        accessorKey: "statistics.accuratePass",
+        accessorKeySecond: "statistics.totalPass",
         sorted: true,
       },
       {
         header: "Key passes",
-        accessorKey: "keyPasses",
+        accessorKey: "statistics.keyPass",
         sorted: true,
       },
       {
-        header: "Average UniScore rating",
-        accessorKey: "rating",
+        header: "Crosses(acc.)",
+        accessorKey: "statistics.totalCross",
+        accessorKeySecond:"statistics.accurateCross",
+        sorted: true,
+      },
+      {
+        header: "Long balls(acc.)",
+        accessorKey: "statistics.totalLongBalls",
+        accessorKeySecond:"statistics.accurateLongBalls",
+        sorted: true,
+      },
+      {
+        header: "Notes",
+        accessorKey: "statistics.bigChanceCreated",
+      },
+      {
+        header: "Position",
+        accessorKey: "player.position",
+      },
+      {
+        header: "Rating",
+        accessorKey: "statistics.rating",
         sorted: true,
       },
     ],
   },
   {
-    id: 4,
+    id:4,
+    name:"Duels",
+    data:[
+      {
+        header:"Ground duels(won)",
+        accessorKey:"",
+        sorted: true,
+      },
+      {
+        header: "Aerial duels(won)",
+        accessorKey: "statistics.aerialLost",
+        accessorKeySecond: "statistics.aerialWon",
+      },
+      {
+        header:"Possession lost",
+        accessorKey:"statistics.possessionLostCtrl",
+        sorted:true
+      },
+      {
+        header:"Fouls",
+        accessorKey:"statistics.fouls",
+        sorted:true
+      },
+      {
+        header:"Was fouled",
+        accessorKey:"statistics.wasFouled",
+        sorted:true
+      },
+      {
+        header:"Offsides",
+        accessorKey:"statistics.totalOffside",
+        sorted:true
+      },
+      {
+        header:"Position",
+        accessorKey:"player.position",
+        sorted:true
+      },
+      {
+        header:"Rating",
+        accessorKey:"statistics.rating",
+        sorted:true
+      },
+    ]
+  },
+  {
+    id: 5,
     name: "Goalkeeper",
     data: [
       {
-        header: "Clean sheets",
-        accessorKey: "cleanSheet",
+        header: "Saves",
+        accessorKey: "statistics.saves",
         sorted: true,
       },
       {
-        header: "Penaties saved",
-        accessorKey: "penaltySave",
+        header: "Goals prevented",
+        accessorKey: "goalsPrevented",
         sorted: true,
       },
       {
-        header: "Saves from inside box",
+        header: "Punches",
         accessorKey: "savedShotsFromInsideTheBox",
         sorted: true,
       },
       {
-        header: "Runs outs",
+        header: "Runs out(succ.)",
         accessorKey: "runsOut",
         sorted: true,
       },
       {
-        header: "Average UniScore rating",
-        accessorKey: "rating",
-        sorted: true,
-      },
-    ],
-  },
-  {
-    id: 5,
-    name: "Detailed",
-    data: [
-      {
-        header: "Goals",
-        accessorKey: "goals",
-        sorted: true,
+        header: "High claims",
+        accessorKey: "",
       },
       {
-        header: "Succ. dribbles",
-        accessorKey: "successfulDribbles",
-        sorted: true,
+        header: "Notes",
+        accessorKey: "statistics.savedShotsFromInsideTheBox",
+        accessorKeySecond:"statistics.penaltySave"
       },
       {
-        header: "Tackles",
-        accessorKey: "tackles",
-        sorted: true,
-      },
-      {
-        header: "Assists",
-        accessorKey: "assists",
-        sorted: true,
-      },
-      {
-        header: "Accurate passes %",
-        accessorKey: "accuratePassesPercentage",
-        sorted: true,
-      },
-      {
-        header: "Average UniScore rating",
+        header: "Rating",
         accessorKey: "rating",
         sorted: true,
       },
