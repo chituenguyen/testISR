@@ -41,7 +41,7 @@ const Home: NextPage = () => {
       </div>
       <div>
         <div className={`${showLineUp ? "block" : "hidden"}`}>
-          <h4 className="text-xsm">Show anything to load api player statistic</h4>
+          <h4 className="text-xsm px-6">Show anything to load api player statistic</h4>
         </div>
         <div className={`${showStatistic ? "block" : "hidden"}`}>
           <TableMatch statistic = {statistic?.data} team ={team?.data}/>
