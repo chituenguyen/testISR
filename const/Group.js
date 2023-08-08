@@ -193,9 +193,11 @@ let columns = [
     name:"Duels",
     data:[
       {
-        header:"Ground duels(won)",
-        accessorKey:"",
-        sorted: true,
+        header: "Ground duels(won)",
+        accessorKey: "statistics.aerialWon",
+        accessorKeySecond: "statistics.aerialLost",
+        accessorKeyThird: "statistics.duelLost",
+        accessorKeyFourth: "statistics.duelWon",
       },
       {
         header: "Aerial duels(won)",
