@@ -23,7 +23,7 @@ function Headertable({
 
   return (
     <thead>
-      <tr className={`border-t ${resolvedTheme === "dark"?"bg-[#181D26] border-[#696f75]":"bg-surface-1 border-white "}`}>
+      <tr className={`border-t border-l s${resolvedTheme === "dark"?"bg-[#181D26] border-[#696f75]":"bg-surface-1 border-white "}`}>
         <th className=" text-xs leading-4 ">
           <div className="w-10"></div>
         </th>
