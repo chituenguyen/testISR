@@ -19,7 +19,7 @@ const Home: NextPage = () => {
     return <div></div>;
   }
   return (
-    <div className={`containerPage font-beVietNam flex flex-col gap-3 w-[880px] py-5 border border-solid border-surface-2 rounded-3xl shadow-2xl my-3 ${resolvedTheme === "dark"?"border-white":""}`}>
+    <div className={`containerPage font-beVietNam flex flex-col gap-3 w-[880px] py-5 border border-solid border-surface-2 rounded-3xl shadow-2xl my-3 ${resolvedTheme === "dark"?"border-white bg-[#1C2632]":""}`}>
       <h3 className={`text-basic text-base font-bold not-italic uppercase text-center ${resolvedTheme === "dark"?"text-white":""}`}>players</h3>
       <div className="w-fit h-fit absolute top-0 right-0">
       <ThemeSwitch/>
