@@ -12,7 +12,6 @@ const Home: NextPage = () => {
   const [showStatistic, setShowStatistic] = useState(false);
   const queryClient = useQueryClient();
   const { resolvedTheme } = useTheme();
-  console.log(resolvedTheme);
 
   const { data: team, isLoading: loadingTeam } = useTeam();
   const { data: statistic, isLoading: loadingStatistic } = useStatisticMatch();
