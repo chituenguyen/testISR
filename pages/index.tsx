@@ -31,7 +31,7 @@ const Home: NextPage = () => {
             setShowLineUp(true);
             setShowStatistic(false);
           }}
-          className={`button capitalize ${showLineUp ? "button-active-border":""} `}
+          className={`capitalize ${showLineUp ? "button-active-border":""} ${resolvedTheme === "dark"?"button-dark":"button"}`}
         >
           lineups
         </button>
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
             setShowStatistic(true);
             setShowLineUp(false);
           }}
-          className={`button capitalize ${showStatistic ? "button-active-border":""} `}
+          className={`capitalize ${showStatistic ? "button-active-border":""} ${resolvedTheme === "dark"?"button-dark":"button"}`}
 
         >
           player statistic

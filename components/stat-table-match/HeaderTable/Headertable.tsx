@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 function Headertable({
   columns,
@@ -18,13 +19,15 @@ function Headertable({
   sorted: string;
   onChangeSorted: (value: string) => void;
 }) {
+  const { resolvedTheme } = useTheme();
+
   return (
     <thead>
-      <tr className="bg-surface-1">
-        <th className="border border-solid  text-xs leading-4 border-r-0">
+      <tr className={`border-t border-white ${resolvedTheme === "dark"?"bg-[#181D26]":"bg-surface-1"}`}>
+        <th className=" text-xs leading-4 ">
           <div className="w-10"></div>
         </th>
-        <th className="flex gap-3 px-2 py-3 items-center justify-center border border-solid text-xs leading-4 w-[170px] max-w-[170px] min-w-[160px] border-r-0 border-b-0">
+        <th className="flex gap-3 px-2 py-3 items-center justify-center border border-solid text-xs leading-4 w-[170px] max-w-[170px] min-w-[160px] border-r-0 border-b-0 border-t-0">
           <button
             className={`flex gap-1 items-center p-1 px-2 ${
               selectTeam === "total" ? "bg-rega-blue rounded-full" : ""
@@ -75,7 +78,7 @@ function Headertable({
         {columns.map((column: any, index: number) => (
           <th
             key={index}
-            className={`border border-solid  px-1  text-xs not-italic leading-4 text-surface-2 font-medium relative ${column.header === "Notes"?"":"hover:cursor-pointer"}`}
+            className={`border border-solid  px-1  text-xs not-italic leading-4 font-medium relative ${column.header === "Notes"?"":"hover:cursor-pointer"} ${resolvedTheme === "dark"?"text-[#7C7E83]":"text-surface-2"}`}
             onClick={column.header !== "Notes" ? () => onChangeSorted(column.accessorKey) : undefined}
           >
             <p>{column.header}</p>

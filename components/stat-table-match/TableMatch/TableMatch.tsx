@@ -2,11 +2,13 @@ import columns from "../../../const/Group";
 import { useEffect, useState } from "react";
 import Headertable from "../HeaderTable/Headertable";
 import BodyTable from "../BodyTable/BodyTable";
+import { useTheme } from "next-themes";
 function TableMatch({ statistic, team }: { statistic: any; team: any }) {
   const [group, setGroup] = useState(columns[0].id);
   const [selectTeam, setSelectteam] = useState("total");
   const [data, setData] = useState<any[]>([]);
   const [sorted, setSorted] = useState("statistics.rating");
+  const { resolvedTheme } = useTheme();
 
   const handleChangeSelectTeam = (value: string) => {
     setSelectteam(value);
@@ -137,7 +139,7 @@ function TableMatch({ statistic, team }: { statistic: any; team: any }) {
         {columns.map((item) => (
           <button
             key={item.id}
-            className={group === item.id ? "button-active" : "button"}
+            className={`${(group === item.id && resolvedTheme === "dark") ? "button-active-dark" : (group === item.id && resolvedTheme !== "dark") ? "button-active" :(group !== item.id && resolvedTheme === "dark") ? "button-dark" :"button"}`}
             onClick={() => handleGroupClick(item.id)}
           >
             {item.name}

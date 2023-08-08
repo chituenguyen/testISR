@@ -14,7 +14,10 @@
       @apply py-2 px-3 rounded-sm text-white text-xs;
     }
     .button-active{
-      @apply py-2 px-3 bg-[#2187E5]  text-xs border-[1px] border-solid text-black rounded-md text-white;
+      @apply py-2 px-3 bg-[#2187E5]  text-xs border-[1px] border-solid text-black rounded-md;
+    }
+    .button-active-dark{
+      @apply py-2 px-3 bg-[#2187E5]  text-xs border-[1px] border-solid text-white rounded-md;
     }
     .button-active-border{
       @apply py-2 px-3  border border-solid border-[#2187E5]  text-xs  text-black rounded-md bg-gray-200;
