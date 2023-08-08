@@ -245,7 +245,7 @@ let columns = [
       },
       {
         header: "Goals prevented",
-        accessorKey: "goalsPrevented",
+        accessorKey: "statistics.goalsPrevented",
         sorted: true,
       },
       {
