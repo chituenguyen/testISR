@@ -19,18 +19,34 @@ const Home: NextPage = () => {
     return <div></div>;
   }
   return (
-    <div className={`containerPage font-beVietNam flex flex-col gap-3 w-[880px] py-5 border border-solid border-surface-2 rounded-3xl shadow-2xl my-3 ${resolvedTheme === "dark"?"border-[#696f75] bg-[#1C2632]":""}`}>
-      <h3 className={`text-basic text-base font-bold not-italic uppercase text-center ${resolvedTheme === "dark"?"text-white":""}`}>players</h3>
+    <div
+      className={`containerPage font-beVietNam flex flex-col gap-3 w-[880px] py-5 border border-solid border-surface-2 rounded-3xl shadow-2xl my-3 ${
+        resolvedTheme === "dark" ? "border-[#696f75] bg-[#1C2632]" : ""
+      }`}
+    >
+      <h3
+        className={`text-basic text-base font-bold not-italic uppercase text-center ${
+          resolvedTheme === "dark" ? "text-white" : ""
+        }`}
+      >
+        players
+      </h3>
       <div className="w-fit h-fit absolute top-0 right-0">
-      <ThemeSwitch/>
+        <ThemeSwitch />
       </div>
-      <div className={`flex gap-2 px-6 ${resolvedTheme === "dark"?"text-white":""}`}>
+      <div
+        className={`flex gap-2 px-6 ${
+          resolvedTheme === "dark" ? "text-white" : ""
+        }`}
+      >
         <button
           onClick={() => {
             setShowLineUp(true);
             setShowStatistic(false);
           }}
-          className={`capitalize ${showLineUp ? "button-active-border":""} ${resolvedTheme === "dark"?"button-dark":"button"}`}
+          className={`capitalize ${showLineUp ? "button-active-border" : ""} ${
+            resolvedTheme === "dark" ? "button-dark" : "button"
+          }`}
         >
           lineups
         </button>
@@ -39,18 +55,21 @@ const Home: NextPage = () => {
             setShowStatistic(true);
             setShowLineUp(false);
           }}
-          className={`capitalize ${showStatistic ? "button-active-border":""} ${resolvedTheme === "dark"?"button-dark":"button"}`}
-
+          className={`capitalize ${
+            showStatistic ? "button-active-border" : ""
+          } ${resolvedTheme === "dark" ? "button-dark" : "button"}`}
         >
           player statistic
         </button>
       </div>
       <div>
         <div className={`${showLineUp ? "block" : "hidden"}`}>
-          <h4 className="text-xsm px-6">Show anything to load api player statistic</h4>
+          <h4 className="text-xsm px-6">
+            Show anything to load api player statistic
+          </h4>
         </div>
         <div className={`${showStatistic ? "block" : "hidden"}`}>
-          <TableMatch statistic = {statistic?.data} team ={team?.data}/>
+          <TableMatch statistic={statistic?.data} team={team?.data} />
         </div>
       </div>
     </div>
