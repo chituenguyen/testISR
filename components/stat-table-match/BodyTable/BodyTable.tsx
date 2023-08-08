@@ -11,14 +11,14 @@ function BodyTable({ data, columns }: { data: any; columns: any }) {
       {data.map((item: any, index: number) => (
         <tr
           key={index}
-          className={`border border-solid ${resolvedTheme === "dark"?"border-[#696f75]":"border-surface-3"} ${
-            index % 2 === 1 && resolvedTheme === "light"
+          className={`border border-solid ${resolvedTheme === "dark"?"border-[#696f75] border-opacity-30":"border-surface-3"} ${
+            index % 2 === 0 && resolvedTheme === "light"
               ? "bg-surface-1"
-              : index % 2 === 1 && resolvedTheme !== "light"
-              ? "bg-[#181D26]"
-              : index % 2 !== 1 && resolvedTheme === "light"
+              : index % 2 === 0 && resolvedTheme !== "light"
+              ? "bg-[#14181C]"
+              : index % 2 !== 0 && resolvedTheme === "light"
               ? "bg-white"
-              : "bg-[#1C2632]"
+              : "bg-[#121414]"
           }`}
         >
           <td className="h-full flex justify-center items-center border-r-0">
@@ -30,7 +30,7 @@ function BodyTable({ data, columns }: { data: any; columns: any }) {
               className="mt-2"
             />
           </td>
-          <td className={`px-2 border ${resolvedTheme === "dark"?"border-[#696f75]":""}`}>{item.player.name}</td>
+          <td className={`px-2 border ${resolvedTheme === "dark"?"border-[#696f75] border-opacity-30 text-[#aaa]":""}`}>{item.player.name}</td>
           {columns.map((column: any, index: number) => {
             const accessorKeys = column.accessorKey.split(".");
             const accessorKeySecond = column.accessorKeySecond?.split(".");
@@ -143,18 +143,18 @@ function BodyTable({ data, columns }: { data: any; columns: any }) {
               <td
                 key={index}
                 className={` text-center py-2 px-2 whitespace-nowrap  border border-solid ${
-                  resolvedTheme === "dark" ? "border-[#696f75]" : "border-surface-3"
+                  resolvedTheme === "dark" ? "border-[#696f75] border-opacity-30 text-[#aaa]" : "border-surface-3"
                 } ${
                   column.accessorKey === "statistics.rating"
                     ? cellData >= 9
-                      ? "text-[#3498DB]"
+                      ? "!text-[#3498DB] !font-bold"
                       : cellData >= 8
-                      ? "text-[#47C152]"
+                      ? "!ext-[#47C152] !font-bold"
                       : cellData >= 7
-                      ? "text-[#A2B719]"
+                      ? "!text-[#A2B719] !font-bold"
                       : cellData >= 6
-                      ? "text-[#D8B62A]"
-                      : "text-[#FA5151]"
+                      ? "!text-[#D8B62A] !font-bold"
+                      : "!text-[#FA5151] !font-bold"
                     : ""
                 }`}
               >
