@@ -85,6 +85,7 @@ function BodyTable({ data, columns }: { data: any; columns: any }) {
               if (column.header === "Long balls(acc.)") {
                 cellData = `${cellData || 0}(${cellDataSecond || 0})`;
               }
+              
             }
             if (column.header === "Minutes played") {
               cellData = `${cellData}'`;
@@ -134,7 +135,10 @@ function BodyTable({ data, columns }: { data: any; columns: any }) {
                 cellData = "-";
               }
             }
-
+            // duelWon + duelLost duelLost- arielWon arielLost arielLost/ duelWon - aerialWon
+            if(column.header === "Ground duels(won)"){
+              cellData = `${(cellDataFourth || 0) + (cellDataThird ||0) - (cellDataSecond||0) - (cellData||0)}(${(cellDataFourth || 0) -(cellData||0)})`
+            }
             return (
               <td
                 key={index}

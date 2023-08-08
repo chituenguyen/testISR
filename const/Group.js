@@ -36,7 +36,10 @@ let columns = [
       },
       {
         header: "Ground duels(won)",
-        accessorKey: "statistics.ground",
+        accessorKey: "statistics.aerialWon",
+        accessorKeySecond: "statistics.aerialLost",
+        accessorKeyThird: "statistics.duelLost",
+        accessorKeyFourth: "statistics.duelWon",
       },
       {
         header: "Aerial duels(won)",

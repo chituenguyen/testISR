@@ -30,9 +30,16 @@ function TableMatch({ statistic, team }: { statistic: any; team: any }) {
         if (properties[properties.length - 1] === "duelLost") {
           return (obj.statistics.duelLost || 0) + (obj.statistics.duelWon || 0);
         }
+        // arial duel won
         if (properties[properties.length - 1] === "aerialLost") {
           return (
             (obj.statistics.aerialLost || 0) + (obj.statistics.aerialWon || 0)
+          );
+        }
+        // duel ground
+        if (properties[properties.length - 1] === "aerialWon") {
+          return (
+            -(obj.statistics.aerialLost || 0) - (obj.statistics.aerialWon || 0) + (obj.statistics.duelLost || 0) +(obj.statistics.duelWon || 0)
           );
         }
         if (properties[properties.length - 1] === "position") {
