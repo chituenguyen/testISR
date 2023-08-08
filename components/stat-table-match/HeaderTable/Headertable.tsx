@@ -92,7 +92,7 @@ function Headertable({
             >
               <path
                 d="M7.525 0L8 0.546875L4 5L0 0.546875L0.475 0L4 3.90625L7.525 0Z"
-                fill={`${column.accessorKey === sorted || `-${column.accessorKey}` === `${sorted}` ?"#2187E5":"#22222673"}`}
+                fill={`${column.accessorKey === sorted || `-${column.accessorKey}` === `${sorted}` ?"#2187E5":"#555"}`}
               />
             </svg>}
           </th>
