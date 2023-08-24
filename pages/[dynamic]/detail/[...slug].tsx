@@ -72,6 +72,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     } else {
       id = null;
     }
+    console.log(id);
     const response = await axios.get(
       `https://api.uni-tech.xyz/wp-json/wp/v2/posts/${id}`
     );
