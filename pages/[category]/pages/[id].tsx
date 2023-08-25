@@ -37,7 +37,7 @@ const DetailPage = ({ category, pageType, id,data }:{category:any, pageType:any,
                   </div>
                   <div className=' flex w-full flex-col place-content-center gap-4 rounded-none p-4 md:w-2/5 md:rounded-r-md lg:gap-8'>
                     <a
-                      href={`/${slug}/detail/${data[0].slug}-${data[0].id}`}
+                      href={`/${slug}/${data[0].slug}-i${data[0].id}`}
                     >
                       <h4
                         className='text-2xl font-bold leading-8 tracking-normal hover:text-logo-blue'
@@ -55,7 +55,7 @@ const DetailPage = ({ category, pageType, id,data }:{category:any, pageType:any,
                     ></p>
                     <div className='text-base font-bold uppercase leading-5 tracking-normal text-logo-blue'>
                       <a
-                        href={`/${slug}/detail/${data[0].slug}/${data[0].id}`}
+                        href={`/${slug}/${data[0].slug}-i${data[0].id}`}
                       >
                         <h4>CHI TIẾT</h4>
                       </a>
@@ -69,7 +69,7 @@ const DetailPage = ({ category, pageType, id,data }:{category:any, pageType:any,
                     <div key={index}>
                       <div className=''>
                         <a
-                          href={`/${slug}/detail/${item.slug}/${item.id}`}
+                          href={`/${slug}/${data[0].slug}-i${data[0].id}`}
                         >
                           <img
                             src={item.featured_image_url}
@@ -80,7 +80,7 @@ const DetailPage = ({ category, pageType, id,data }:{category:any, pageType:any,
                       </div>
                       <div className='py-2.5'>
                         <a
-                          href={`/${slug}/detail/${item.slug}/${item.id}`}
+                          href={`/${slug}/${data[0].slug}-i${data[0].id}`}
                           className='flex flex-1 items-center text-csm font-semibold leading-6 tracking-normal hover:text-logo-blue'
                           dangerouslySetInnerHTML={{
                             __html: item.title.rendered,
