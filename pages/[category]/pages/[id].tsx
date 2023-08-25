@@ -9,6 +9,9 @@ const DetailPage = ({ category, pageType, id,data }:{category:any, pageType:any,
   console.log(data)
   const slug = useRouter().asPath.split('/')[1]
   console.log(useRouter().asPath.split('/'))
+  if(data.length ===0){
+    return <></>
+  }
   return (
     <>
 
