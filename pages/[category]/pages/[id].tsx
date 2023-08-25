@@ -118,7 +118,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
         category: category || null,
         pageType: pageType || null,
         id: id,
-        data:response.data
+        data:response.data,
+        revalidate:10
       },
     };
   } catch (error) {
