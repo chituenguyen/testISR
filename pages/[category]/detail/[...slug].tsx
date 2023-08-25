@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
-
+import { redirect, usePathname } from 'next/navigation'
 
 
 
@@ -11,7 +11,11 @@ const ArticlePage = ({
   data: any;
   dataRelated: any;
 }) => {
-  console.log('run file slug');
+  console.log('run file slug',data);
+  const pathname = usePathname()
+  if(pathname.split('/')[pathname.split('/').length - 1] !== `${data.slug}-i${data.id}` ){
+    console.log("Return")
+  }
   return (
     <div className=''>
       <div className='layout !mt-0 flex-col gap-y-4 lg:flex-row lg:leading-7'>
@@ -67,7 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     let id;
     if (params && params.slug) {
-      id = params.slug[0].split('-')[params.slug[0].split('-').length - 1];
+      id = params.slug[0].split('-')[params.slug[0].split('-').length-1].substring(1);
       // Tiếp tục xử lý với biến id ở đây
     } else {
       id = null;
@@ -78,6 +82,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     );
 
     const data = response.data;
+    if(params &&params.slug){
+      if(params.slug[0] !== `${data.slug}-i${data.id}` ){
+        return {
+          redirect: {
+            destination: '/',
+            permanent: false,
+          },
+        };
+    }
+        
+    } 
 
     return {
       props: {

@@ -1,25 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
-// pages/[dynamic]/[pageType]/[...id].js
+// pages/[category]/[pageType]/[...id].js
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import axios from 'axios';
 import { ParsedUrlQuery } from 'querystring';
 
-const DetailPage = ({ dynamic, pageType, id,data }:{dynamic:any, pageType:any, id:any,data:any}) => {
+const DetailPage = ({ category, pageType, id,data }:{category:any, pageType:any, id:any,data:any}) => {
   console.log(data)
   const slug = useRouter().asPath.split('/')[1]
   console.log(useRouter().asPath.split('/'))
   return (
     <>
+
       <div className='layout'>
         <div>
+          <h1>Subdomain in here</h1>
+          <div className='flex gap-5'>
+            <a href={`/${slug}/sub1`}>sub1</a >
+            <a href={`/${slug}/sub2`}>sub2</a >
+            <a href={`/${slug}/sub3`}>sub3</a >
+          </div>
           <div className='h-full rounded-md'>
             <div className='divide-list'>
               <div className='p-2.5'>
                 <div className='flex flex-col rounded-md bg-light-match dark:bg-dark-match md:flex-row'>
                   <div className=' w-full rounded-none md:w-3/5 md:rounded-l-md'>
                     <a
-                      href={`/${slug}/detail/${data[0].slug}-${data[0].id}`}
+                      href={`/${slug}/${data[0].slug}-i${data[0].id}`}
                     >
                       <img
                         src={data[0].featured_image_url}
@@ -48,7 +55,7 @@ const DetailPage = ({ dynamic, pageType, id,data }:{dynamic:any, pageType:any, i
                     ></p>
                     <div className='text-base font-bold uppercase leading-5 tracking-normal text-logo-blue'>
                       <a
-                        href={`/${slug}/detail/${data[0].slug}-${data[0].id}`}
+                        href={`/${slug}/detail/${data[0].slug}/${data[0].id}`}
                       >
                         <h4>CHI TIẾT</h4>
                       </a>
@@ -62,7 +69,7 @@ const DetailPage = ({ dynamic, pageType, id,data }:{dynamic:any, pageType:any, i
                     <div key={index}>
                       <div className=''>
                         <a
-                          href={`/${slug}/detail/${item.slug}-${item.id}`}
+                          href={`/${slug}/detail/${item.slug}/${item.id}`}
                         >
                           <img
                             src={item.featured_image_url}
@@ -73,7 +80,7 @@ const DetailPage = ({ dynamic, pageType, id,data }:{dynamic:any, pageType:any, i
                       </div>
                       <div className='py-2.5'>
                         <a
-                          href={`/${slug}/detail/${item.slug}-${item.id}`}
+                          href={`/${slug}/detail/${item.slug}/${item.id}`}
                           className='flex flex-1 items-center text-csm font-semibold leading-6 tracking-normal hover:text-logo-blue'
                           dangerouslySetInnerHTML={{
                             __html: item.title.rendered,
@@ -95,20 +102,20 @@ const DetailPage = ({ dynamic, pageType, id,data }:{dynamic:any, pageType:any, i
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
     const { params } = context;
-    const { dynamic, pageType, id } = params as ParsedUrlQuery & { dynamic: string; pageType: string; id: string };
-    const category = [
+    const { category, pageType, id } = params as ParsedUrlQuery & { category: string; pageType: string; id: string };
+    const categories = [
       { id: 1, slug: "soi-keo", name: "Trang soi keo" },
       { id: 2, slug: "nhan-dinh", name: "Trang nhan dinh" },
       { id: 3, slug: "tips", name: "Trang Tips" },
       { id: 4, slug: "tin-tuc", name: "Trang tin tuc" },
     ];
-    const foundCategory = category.find(category => category.slug === dynamic);
+    const foundCategory = categories.find(item => item.slug === category);
     const response = await axios.get(
       `https://api.uni-tech.xyz/wp-json/wp/v2/posts?per_page=10&page=${id}&orderby=date&order=desc&categories=${foundCategory?.id}`
     );
     return {
       props: {
-        dynamic: dynamic || null,
+        category: category || null,
         pageType: pageType || null,
         id: id,
         data:response.data
